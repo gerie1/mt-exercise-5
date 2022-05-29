@@ -1,23 +1,23 @@
-name: "transformer_sample_config"
+name: "transformer_model_wordlvl"
 
 data:
-    src: "?"
-    trg: "?"
-    train: "?"
-    dev:   "?"
-    test:  "?"
-    level: "?"
+    src: "de"
+    trg: "en"
+    train: "data/train.de-en-sample-tokenized"
+    dev:   "data/dev.de-en-tokenized"
+    test:  "data/test.de-en-tokenized"
+    level: "word"
     lowercase: False
     max_sent_length: 100
     # either use a vocabulary limit:
-    src_voc_limit: ?
-    trg_voc_limit: ?
+    src_voc_limit: 2000
+    trg_voc_limit: 2000
     # or (= not both!) a file with a vocabulary built before starting the training:
-    src_vocab: "?"
-    trg_vocab: "?"
+    #src_vocab: "?"
+    #trg_vocab: "?"
 
 testing:
-    beam_size: ?
+    beam_size: 5
     alpha: 1.0
 
 training:
@@ -38,10 +38,10 @@ training:
     validation_freq: 500
     logging_freq: 100
     eval_metric: "bleu"
-    model_dir: "?"
-    overwrite: False
+    model_dir: "models/transformer_model_wordlvl"
+    overwrite: True
     shuffle: True
-    use_cuda: False
+    use_cuda: True
     max_output_length: 100
     print_valid_sents: [0, 1, 2, 3, 4]
     label_smoothing: 0.3
@@ -52,7 +52,7 @@ model:
     init_gain: 1.0
     embed_initializer: "xavier"
     embed_init_gain: 1.0
-    tied_embeddings: True
+    tied_embeddings: False
     tied_softmax: True
     encoder:
         type: "transformer"

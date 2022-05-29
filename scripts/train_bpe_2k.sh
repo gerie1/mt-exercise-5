@@ -16,7 +16,7 @@ SECONDS=0
 
 logs=$base/logs
 
-model_name=transformer_sample_config
+model_name=transformer_model_bpe_2k
 
 mkdir -p $logs
 
