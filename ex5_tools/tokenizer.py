@@ -46,6 +46,7 @@ def tokenizer(type):
                 doc = nlp_de(sent2)
                 for token2 in doc:
                     sentence_de.append(token2.text)
+                print(sentence_de)
                 de.write(" ".join(sentence_de)[:-2])
                 de.write("\n")
 
