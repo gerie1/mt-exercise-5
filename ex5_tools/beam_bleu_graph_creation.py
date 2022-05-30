@@ -15,18 +15,5 @@ def create_beam_bleu_graph():
     plt.show()
 
 
-from ex5_tools.beam_bleu_graph_creation import create_beam_bleu_graph
-
-ap.add_argument("--create_beam_bleu_graph", action="store_true",
-                     help="Creates a beam size BLEU line graph")
-
-
-    elif args.create_beam_bleu_graph:
-        print("Creating the graph")
-        create_beam_bleu_graph()
-        print("The graph was saved in your folder.")
-
-
-
 if __name__ == "__main__":
     create_beam_bleu_graph()
