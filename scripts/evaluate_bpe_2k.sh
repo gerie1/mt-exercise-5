@@ -36,15 +36,15 @@ CUDA_VISIBLE_DEVICES=$device OMP_NUM_THREADS=$num_threads python -m joeynmt tran
 
 # undo BPE
 
-cat $translations_sub/test.de-en-tokenized-bpe-2k.$model_name.$trg | sed 's/\@\@ //g' > $translations_sub/test.de-en-tokenized-bpe-2k.$model_name.$trg
+cat $translations_sub/test.de-en-tokenized-bpe-2k.$model_name.$trg | sed 's/\@\@ //g' > $translations_sub/test.de-en-tokenized-2k.$model_name.$trg
 
 # undo tokenization
 
-cat $translations_sub/test.de-en-tokenized-bpe-2k.$model_name.$trg | $MOSES/tokenizer/detokenizer.perl -l $trg > $translations_sub/test.de-en-detokenized-bpe-2k.$model_name.$trg
+cat $translations_sub/test.de-en-tokenized-2k.$model_name.$trg | $MOSES/tokenizer/detokenizer.perl -l $trg > $translations_sub/test.de-en-detokenized-2k.$model_name.$trg
 
 # compute case-sensitive BLEU on detokenized data
 
-cat $translations_sub/test.de-en-detokenized-bpe-2k.$model_name.$trg | sacrebleu $data/test.de-en-tokenized-bpe-2k.$trg
+cat $translations_sub/test.de-en-detokenized-2k.$model_name.$trg | sacrebleu $data/test.de-en.$trg
 
 
 echo "time taken:"

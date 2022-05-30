@@ -44,7 +44,7 @@ cat $translations_sub/test.de-en-tokenized.$model_name.$trg | $MOSES/tokenizer/d
 
 # compute case-sensitive BLEU on detokenized data
 
-cat $translations_sub/test.de-en-detokenized.$model_name.$trg | sacrebleu $data/test.de-en-tokenized.$trg
+cat $translations_sub/test.de-en-detokenized.$model_name.$trg | sacrebleu $data/test.de-en.$trg
 
 
 echo "time taken:"

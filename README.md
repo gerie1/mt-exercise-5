@@ -77,3 +77,28 @@ Evaluate the trained models with
     ./scripts/evaluate_bpe_5k.sh
 
 # Evaluation
+
+Translation Direction: DE - EN
+Beam size: 5
+
+|	|use BPE|vocabulary size|BLEU|
+|:--:|:------:|:--------------:|:---:|
+|(a)|no|2000|14.1|
+|(b)|yes|2000|20.3|
+|(c)|yes|5000|23.4|
+
+We can see a clear difference when using BPE or not. When using a vocabulary size of 2000 (a) and (b) their is a big difference between the BLEU score. Only by using BPE in (b) we get an increase of almost 6 BLEU scores. And when using a bigger vocabulary size of 5000 the BLEU score increases to 23.4.
+
+# Manual obeservations:
+
+A big advantage of BPE over just doing the translation on the word level is that the <unk> label drops out and is replaced with a word. Which increases the fluency drastically.
+But i found fascinating that BPE on 2000 vocab repeats some phrases with small changes sometimes e.g:
+Robert Gupta: I want to play something that I would like to play something that I've been indeed.
+BPE on 5000 vocab is more fluent in that sense.
+
+# 3 Impact of beam size on translation quality
+
+# Changes
+
+Created .yaml files for beam size 1-10 and the corresponding evaluation script.
+Added beam_graph.py and a picture of the result beam_blue.jpg.
