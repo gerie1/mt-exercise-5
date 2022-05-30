@@ -114,5 +114,5 @@ In this case a big beam size produces roughly the same BLEU score but takes way 
 it has to take into the account of all the potential translation ways.
 And a very small beam size is fast in evaluation but produces a low BLEU score.
 In the future I would choose a beam size of 5 becauses it produces the highest BLEU score while evaluation takes
-just a few minutes. A perfect balance between high BLEU score and runtime.
+just a few minutes. This is a perfect balance between high BLEU score and runtime.
 
