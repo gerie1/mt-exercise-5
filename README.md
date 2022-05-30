@@ -99,6 +99,20 @@ BPE on 5000 vocab is more fluent in that sense.
 # 3 Impact of beam size on translation quality
 
 # Changes
+    
+Created .yaml files for different beam sizes and the corresponding evaluation script.
+Added beam_bleu_graph_creation.py and a picture of the result Beam_BLEU_Graph.jpg.
+    
+![Beam_BLEU_Graph](https://user-images.githubusercontent.com/45572980/171043831-da506583-f919-4937-9ed6-4239e6c1cfcc.jpg)
+    
+# Findings
 
-Created .yaml files for beam size 1-10 and the corresponding evaluation script.
-Added beam_graph.py and a picture of the result beam_blue.jpg.
+The BLEU score increases when the beam size gets bigger until it reaches a threshold.
+BLEU increases from the beam size of 1 with 22.2 BLEU points to 23.4 (threshold) at a beam size of 5
+After the threshold the score stagnates with increasing beam size until it sinks at a beam size of 16
+In this case a big beam size produces roughly the same BLEU score but takes way longer to evaluate because
+it has to take into the account of all the potential translation ways.
+And a very small beam size is fast in evaluation but produces a low BLEU score.
+In the future I would choose a beam size of 5 becauses it produces the highest BLEU score while evaluation takes
+just a few minutes. A perfect balance between high BLEU score and runtime.
+
